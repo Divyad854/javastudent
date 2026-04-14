@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function App() {
   const [page, setPage] = useState("login");
@@ -6,9 +6,10 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [studentName, setStudentName] = useState("");
   const [students, setStudents] = useState([]);
-
-  const BASE = "http://localhost:5001";
-
+const BASE =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5001"
+    : "/api";
   // Load students
   const loadStudents = () => {
     fetch(BASE + "/students/" + email)
