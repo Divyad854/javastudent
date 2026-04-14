@@ -6,7 +6,9 @@ export default function App() {
   const [password, setPassword] = useState("");
   const [studentName, setStudentName] = useState("");
   const [students, setStudents] = useState([]);
-const BASE = "/api";
+
+  const BASE = "http://localhost:5001";
+
   // Load students
   const loadStudents = () => {
     fetch(BASE + "/students/" + email)
